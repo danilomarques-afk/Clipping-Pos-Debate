@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>DEBATE ACAERT 2026 | CLIPAGEM PÓS DEBATE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --verde-claro: #76b72d;
+            --verde-medio: #289c4f;
+            --verde-profundo: #003c2d;
+            --vermelho-atencao: #ce2f28;
+            --claro-1: #f5f6db;
+            --claro-2: #c7dfcc;
+            --claro-3: #d9ebe6;
+            --claro-4: #faeaea;
+            --text-light: #ffffff;
+            --text-muted: rgba(255, 255, 255, 0.7);
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--verde-profundo);
+            color: var(--text-light);
+            min-height: 100vh;
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            background: linear-gradient(135deg, var(--verde-profundo), #01241a);
+            overflow: hidden;
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.6;
+            animation: float 20s infinite ease-in-out alternate;
+        }
+
+        .blob1 {
+            width: 500px;
+            height: 500px;
+            background: var(--verde-medio);
+            top: -100px;
+            left: -100px;
+            animation-delay: 0s;
+        }
+
+        .blob2 {
+            width: 600px;
+            height: 600px;
+            background: var(--verde-claro);
+            bottom: -200px;
+            right: -100px;
+            animation-delay: -5s;
+        }
+        
+        .blob3 {
+            width: 400px;
+            height: 400px;
+            background: #006b4d;
+            top: 40%;
+            left: 30%;
+            animation-delay: -10s;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(100px, 50px) scale(1.1); }
+            100% { transform: translate(-50px, 150px) scale(0.9); }
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-weight: 700;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, var(--claro-1), var(--claro-3));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        .category {
+            margin-bottom: 40px;
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--claro-1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-link {
+            display: block;
+            text-decoration: none;
+            color: var(--text-light);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px 25px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            margin-bottom: 15px;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+            min-height: 48px; 
+        }
+
+        .card-link::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 50%; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: skewX(-25deg);
+            transition: all 0.7s ease;
+        }
+
+        .card-link:hover, .card-link:active {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2), 0 0 15px rgba(118, 183, 45, 0.2);
+        }
+
+        .card-link:hover::before {
+            left: 200%;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--claro-1);
+            color: var(--verde-profundo);
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+            width: fit-content;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 8px;
+        }
+
+        .card-url {
+            font-size: 0.85rem;
+            color: var(--verde-claro);
+            word-break: break-all;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            opacity: 0.9;
+        }
+
+        /* Estilo para os botões de download de PDF */
+        .pdf-buttons-container {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .pdf-btn {
+            flex: 1;
+            min-width: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: var(--verde-medio);
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 14px 20px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .pdf-btn:hover {
+            background-color: var(--verde-claro);
+            color: var(--verde-profundo);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(118, 183, 45, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 15px;
+                padding: 20px;
+                border-radius: 16px;
+            }
+            .header h1 {
+                font-size: 1.6rem;
+            }
+            .card-title {
+                font-size: 1rem;
+            }
+            .card-link {
+                padding: 15px 20px;
+            }
+            .category-title {
+                font-size: 1.3rem;
+            }
+            .pdf-buttons-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="background">
+        <div class="blob blob1"></div>
+        <div class="blob blob2"></div>
+        <div class="blob blob3"></div>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>DEBATE ACAERT 2026<br>CLIPAGEM PÓS DEBATE</h1>
+            <p>Compilado de notícias, reportagens e análises sobre o Debate ACAERT 2026.</p>
+        </div>
+
+        <div class="category">
+            <div class="category-title">📢 Canais Oficiais ACAERT</div>
+
+            <a href="https://www.acaert.com.br/noticia/63707/candidatos-ao-governo-de-sc-apresentam-propostas-no-debate-acaert" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">ACAERT</span>
+                <div class="card-title">Candidatos ao Governo de SC apresentam propostas no Debate ACAERT</div>
+                <div class="card-url">🔗 acaert.com.br/...</div>
+            </a>
+
+            <a href="https://www.acaert.com.br/noticia/63710/debate-acaert-reune-candidatos-ao-governo-do-estado-e-mobiliza-mais-de-100-emissoras-em-sc" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">RNA</span>
+                <div class="card-title">Debate ACAERT reúne candidatos ao Governo do Estado e mobiliza mais de 100 emissoras em SC</div>
+                <div class="card-url">🔗 acaert.com.br/...</div>
+            </a>
+
+            <a href="https://rededenoticiasacaert.com.br/eleicoes-2026/candidatos-ao-governo-discutem-propostas-no-debate-acaert/" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">Portal Rede de Notícias</span>
+                <div class="card-title">Candidatos ao Governo discutem propostas no Debate ACAERT</div>
+                <div class="card-url">🔗 rededenoticiasacaert.com.br/...</div>
+            </a>
+
+            <a href="https://rededenoticiasacaert.com.br/eleicoes-2026/conheca-os-candidatos-ao-governo-de-sc-no-debate-acaert/" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">Portal Rede de Notícias</span>
+                <div class="card-title">Conheça os candidatos ao Governo de SC no Debate ACAERT</div>
+                <div class="card-url">🔗 rededenoticiasacaert.com.br/...</div>
+            </a>
+        </div>
+
+        <div class="category">
+            <div class="category-title">📺 Televisão e Vídeos</div>
+
+            <a href="https://g1.globo.com/sc/santa-catarina/videos-bom-dia-santa-catarina/video/debate-com-candidatos-ao-governo-de-sc-em-florianopolis-14985691.ghtml" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">NSC: Bom Dia SC</span>
+                <div class="card-title">Debate com candidatos ao Governo de SC, em Florianópolis</div>
+                <div class="card-url">🔗 g1.globo.com/...</div>
+            </a>
+
+            <a href="https://ndmais.com.br/video/debate-accandidatos-ao-governo-de-sc-participam-de-debate-da-acaertaert/" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">NDTV</span>
+                <div class="card-title">Candidatos ao Governo de SC participam de debate da ACAERT</div>
+                <div class="card-url">🔗 ndmais.com.br/...</div>
+            </a>
+        </div>
+
+        <div class="category">
+            <div class="category-title">🌐 Portais de Notícias</div>
+
+            <a href="https://ndmais.com.br/politica/debate-da-acaert-candidatos-governo-sc/" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">ND+</span>
+                <div class="card-title">Debate da Acaert tem púlpito vazio de Jorginho, ataques e provocações entre candidatos</div>
+                <div class="card-url">🔗 ndmais.com.br/...</div>
+            </a>
+
+            <a href="https://www.nsctotal.com.br/politica/debate-acaert-candidatos-governo-sc-eleicoes-2026" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">NSC Total</span>
+                <div class="card-title">Reveja como foi o debate da Acaert com candidatos ao governo de SC nas Eleições 2026</div>
+                <div class="card-url">🔗 nsctotal.com.br/...</div>
+            </a>
+
+            <a href="https://www.nsctotal.com.br/politica/debate-da-acaert-reune-candidatos-ao-governo-de-sc-e-discute-temas-como-saude-ensino-superior-e-violencia-contra-a-mulher" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">NSC Total</span>
+                <div class="card-title">Debate da Acaert reúne candidatos ao governo de SC e discute temas como saúde, ensino superior e violência contra a mulher</div>
+                <div class="card-url">🔗 nsctotal.com.br/...</div>
+            </a>
+
+            <a href="https://www.nsctotal.com.br/politica/debate-da-acaert-reune-candidatos-ao-governo-de-sc-nas-eleicoes-2026-nesta-terca-feira-nsc-total-transmite" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">NSC Total</span>
+                <div class="card-title">Debate da Acaert reúne candidatos ao governo de SC nas Eleições 2026 nesta terça-feira; NSC Total transmite</div>
+                <div class="card-url">🔗 nsctotal.com.br/...</div>
+            </a>
+
+            <a href="https://scc10.com.br/politica/veja-o-debate-da-acaert-com-os-candidatos-ao-governo-de-sc/" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">SCC10</span>
+                <div class="card-title">Debate da ACAERT reúne candidatos ao governo de Santa Catarina</div>
+                <div class="card-url">🔗 scc10.com.br/...</div>
+            </a>
+
+            <a href="https://acontecendoaqui.com.br/comunicacao/acaert-promove-debate-com-candidatos-ao-governo-de-sc-em-florianopolis/" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">AcontecendoAqui</span>
+                <div class="card-title">ACAERT promove debate com candidatos ao Governo de SC em Florianópolis</div>
+                <div class="card-url">🔗 acontecendoaqui.com.br/...</div>
+            </a>
+        </div>
+
+        <div class="category">
+            <div class="category-title">✍️ Colunistas</div>
+
+            <a href="https://www.nsctotal.com.br/colunista/anderson-silva/cafe-com-anderson-o-impacto-das-questoes-climaticas-na-campanha-eleitoral-em-sc" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">Anderson Silva</span>
+                <div class="card-title">O impacto das questões climáticas na campanha eleitoral em SC</div>
+                <div class="card-url">🔗 nsctotal.com.br/...</div>
+            </a>
+
+            <a href="https://upiara.com.br/colunistas/solurrutia/sem-jorginho-debate-da-acaert-e-marcado-por-criticas-a-retirada-de-marilisa-do-comando-do-estado/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">Blog do Upiara</span>
+                <div class="card-title">Sem Jorginho, debate da Acaert é marcado por críticas à retirada de Marilisa do comando do Estado</div>
+                <div class="card-url">🔗 upiara.com.br/...</div>
+            </a>
+
+            <a href="https://upiara.com.br/colunistas/maga/debates-cenograficos-alimentam-bolhas-politicas-e-esquecem-o-eleitor/" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">Blog do Upiara</span>
+                <div class="card-title">Debates cenográficos alimentam bolhas políticas e esquecem o eleitor</div>
+                <div class="card-url">🔗 upiara.com.br/...</div>
+            </a>
+
+            <a href="https://ndmais.com.br/politica/merisio-defende-lula-mas-admite-fala-infeliz-sobre-agronegocio/" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">Paulo Rolemberg</span>
+                <div class="card-title">Merisio defende Lula, mas admite fala infeliz sobre agronegócio</div>
+                <div class="card-url">🔗 ndmais.com.br/...</div>
+            </a>
+
+            <a href="https://www.blogdoprisco.com.br/acaert-promove-debate-com-candidatos-ao-governo-de-santa-catarina/" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">Prisco Paraíso</span>
+                <div class="card-title">ACAERT promove debate com candidatos ao Governo de Santa Catarina</div>
+                <div class="card-url">🔗 blogdoprisco.com.br/...</div>
+            </a>
+
+            <a href="https://hnnoticias.com.br/colunas/jorginho-mello-reassume-o-governo-por-causa-da-chuva/" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">Roberto Azevedo</span>
+                <div class="card-title">Jorginho Mello reassume o governo por causa da chuva</div>
+                <div class="card-url">🔗 hnnoticias.com.br/...</div>
+            </a>
+
+            <a href="https://www.facebook.com/roberto.azevedo.16" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">Roberto Azevedo (perfil no Facebook)</span>
+                <div class="card-title">Debate sem Jorginho teve brilho e cobranças</div>
+                <div class="card-url">🔗 facebook.com/...</div>
+            </a>
+        </div>
+
+        <div class="category">
+            <div class="category-title">📻 Emissoras Associadas</div>
+
+            <a href="https://rco.com.br/noticias/eleicoes-2026/debate-da-acaert-com-candidatos-ao-governo-de-sc-sera-transmitido-pela-radio-centro-oeste" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">100.9 Centro Oeste (Pinhalzinho)</span>
+                <div class="card-title">Debate da ACAERT com candidatos ao Governo de SC será transmitido pela Rádio Centro Oeste</div>
+                <div class="card-url">🔗 rco.com.br/...</div>
+            </a>
+
+            <a href="https://rco.com.br/noticias/eleicoes-2026/debate-da-acaert-reune-candidatos-ao-governo-de-sc-em-florianopolis" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">100.9 Centro Oeste (Pinhalzinho)</span>
+                <div class="card-title">Debate da ACAERT reúne candidatos ao Governo de SC em Florianópolis</div>
+                <div class="card-url">🔗 rco.com.br/...</div>
+            </a>
+
+            <a href="https://cbntotal.com.br/noticias/debate-acaert-reune-candidatos-ao-governo-de-sc-nesta-terca-veja-quem-participa-e-como-acompanhar/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">CBN Floripa (Florianópolis)</span>
+                <div class="card-title">Debate ACAERT reúne candidatos ao Governo de SC nesta terça; veja quem participa e como acompanhar</div>
+                <div class="card-url">🔗 cbntotal.com.br/...</div>
+            </a>
+
+            <a href="https://alvorada945.com.br/candidatos-ao-governo-de-sc-apresentam-propostas-no-debate-acaert/" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">Rádio Alvorada (Santa Cecília)</span>
+                <div class="card-title">Candidatos ao Governo de SC apresentam propostas no Debate ACAERT</div>
+                <div class="card-url">🔗 alvorada945.com.br/...</div>
+            </a>
+
+            <a href="https://atualfm.com.br/acompanhe-o-debate-com-os-candidatos-ao-governo-de-sc/" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">Rádio Atual (Concórdia)</span>
+                <div class="card-title">Acompanhe o debate com os candidatos ao Governo de SC</div>
+                <div class="card-url">🔗 atualfm.com.br/...</div>
+            </a>
+
+            <a href="https://radioararangua.com.br/radio-ararangua-transmite-debate-acaert-com-candidatos-ao-governo-de-sc-nesta-terca-feira/" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">Rádio Araranguá (Araranguá)</span>
+                <div class="card-title">Rádio Araranguá transmite Debate ACAERT com candidatos ao Governo de SC nesta terça-feira</div>
+                <div class="card-url">🔗 radioararangua.com.br/...</div>
+            </a>
+
+            <a href="https://radioararangua.com.br/primeiro-debate-ao-governo-de-sc-tem-estrategias-dos-candidatos-e-ausencia-de-jorginho-mello/" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">Rádio Araranguá (Araranguá)</span>
+                <div class="card-title">Primeiro debate ao governo de SC tem estratégias dos candidatos e ausência de Jorginho Mello</div>
+                <div class="card-url">🔗 radioararangua.com.br/...</div>
+            </a>
+
+            <a href="https://belosf7.com.br/ao-vivo-acaert-promove-debate-entre-candidatos-ao-governo-de-sc/" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">Rádio Belos (Seara)</span>
+                <div class="card-title">ACAERT promove debate entre candidatos ao Governo de SC</div>
+                <div class="card-url">🔗 belosf7.com.br/...</div>
+            </a>
+
+            <a href="https://radioclube88.com.br/2026/09/22/debate-da-acaert-reune-candidatos-ao-governo-de-sc-e-discute-temas-como-saude-ensino-superior-e-violencia-contra-a-mulher/?utm_source=chatgpt.com#" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">Rádio Clube (São João Batista)</span>
+                <div class="card-title">Debate da Acaert reúne candidatos ao governo de SC e discute temas como saúde, ensino superior e violência contra a mulher</div>
+                <div class="card-url">🔗 radioclube88.com.br/...</div>
+            </a>
+
+            <a href="https://radioculturaxaxim.com.br/noticias/ultimas-noticias/candidatos-ao-governo-de-sc-apresentam-propostas-no-debate-acaert" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">Rádio Cultura (Xaxim)</span>
+                <div class="card-title">Candidatos ao Governo de SC apresentam propostas no Debate ACAERT</div>
+                <div class="card-url">🔗 radioculturaxaxim.com.br/...</div>
+            </a>
+
+            <a href="https://www.portaleducadora.com/noticia/candidatos-ao-governo-de-sc-apresentam-propostas-no-debate-acaert/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">Rádio Educadora (Taió)</span>
+                <div class="card-title">Candidatos ao Governo de SC apresentam propostas no Debate Acaert</div>
+                <div class="card-url">🔗 portaleducadora.com/...</div>
+            </a>
+
+            <a href="https://radiofraiburgo.fm.br/candidatos-ao-governo-de-sc-apresentam-propostas-no-debate-acaert/" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">Rádio Fraiburgo (Fraiburgo)</span>
+                <div class="card-title">Candidatos ao Governo de SC apresentam propostas no Debate ACAERT</div>
+                <div class="card-url">🔗 radiofraiburgo.fm.br/...</div>
+            </a>
+
+            <a href="https://guararemanews.com.br/eleicoes-2026/guararema-news-transmite-debate-com-candidatos-ao-governo-de-sc-nesta-terca/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">Rádio Guararema (Brusque)</span>
+                <div class="card-title">Guararema News transmite debate com candidatos ao Governo de SC nesta terça</div>
+                <div class="card-url">🔗 guararemanews.com.br/...</div>
+            </a>
+
+            <a href="https://folharegionalwebtv.com/cotidiano/merisio-joao-rodrigues-e-ralf-zimmer-participam-de-debate-da-acaert-jorginho-mello-nao-comparece-129984?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">Rádio H20 (Jaguaruna)</span>
+                <div class="card-title">Merísio, João Rodrigues e Ralf Zimmer participam de debate da ACAERT; Jorginho Mello não comparece</div>
+                <div class="card-url">🔗 folharegionalwebtv.com/...</div>
+            </a>
+
+            <a href="https://www.radiointegracaofm95.com.br/noticias/4152-debate-acaert-com-candidatos-ao-governo-de-sc" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">Rádio Integração (São José do Cedro)</span>
+                <div class="card-title">Debate Acaert com candidatos ao governo de SC</div>
+                <div class="card-url">🔗 radiointegracaofm95.com.br/...</div>
+            </a>
+
+            <a href="https://liderfm1075.com.br/radio-lider-fm-transmite-debate-com-candidatos-ao-governo-de-santa-catarina-nesta-terca-feira/" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">Rádio Líder (Herval D’Oeste)</span>
+                <div class="card-title">Rádio Líder FM transmite debate com candidatos ao Governo de Santa Catarina nesta terça-feira (22)</div>
+                <div class="card-url">🔗 liderfm1075.com.br/...</div>
+            </a>
+
+            <a href="https://radiomarconi.net/acaert-promove-debate-com-candidatos-ao-governo-do-estado-nesta-terca-feira/" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">Rádio Marconi (Urussanga)</span>
+                <div class="card-title">Acaert promove debate com candidatos ao Governo do Estado nesta terça-feira</div>
+                <div class="card-url">🔗 radiomarconi.net/...</div>
+            </a>
+
+            <a href="https://radionamba.com.br/noticias/15403-debate-acaert-2026-reune-candidatos-ao-governo-de-santa-catarina-nesta-terca-feira-21" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">Rádio Nambá (Ponte Serrada)</span>
+                <div class="card-title">Debate ACAERT 2026 reúne candidatos ao Governo de Santa Catarina nesta terça-feira (22)</div>
+                <div class="card-url">🔗 radionamba.com.br/...</div>
+            </a>
+
+            <a href="https://radiopomerode.com.br/radio-pomerode-e-104-fm-transmitem-debate-da-acaert-com-candidatos-ao-governo-de-sc/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">Rádio Pomerode (Pomerode)</span>
+                <div class="card-title">Rádio Pomerode e 104 FM transmitem debate da ACAERT com candidatos ao Governo de SC</div>
+                <div class="card-url">🔗 radiopomerode.com.br/...</div>
+            </a>
+
+            <a href="https://www.radiorural.com.br/noticias/63739-acaert-promovera-debate-entre-candidatos-ao-governo-de-sc" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">Rádio Rural (Concórdia)</span>
+                <div class="card-title">ACAERT promoverá debate entre candidatos ao Governo de SC</div>
+                <div class="card-url">🔗 radiorural.com.br/...</div>
+            </a>
+
+            <a href="https://sintonia.fm.br/noticias/candidatos-ao-governo-de-sc-apresentam-propostas-no-debate-acaert-52086.html" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">Rádio Sintonia (Ituporanga)</span>
+                <div class="card-title">Candidatos ao Governo de SC apresentam propostas no Debate ACAERT</div>
+                <div class="card-url">🔗 sintonia.fm.br/...</div>
+            </a>
+
+            <a href="https://tropicalfm99.com.br/noticia/acaert-promove-debate-com-candidatos-ao-governo-de-santa-catarina" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">Rádio Tropical (Treze Tílias)</span>
+                <div class="card-title">ACAERT promove debate com candidatos ao Governo de Santa Catarina</div>
+                <div class="card-url">🔗 tropicalfm99.com.br/...</div>
+            </a>
+
+            <a href="https://peperi.com.br/noticia-detalhes/candidatos-ao-governo-de-sc-apresentam-propostas-no-debate-acaert" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">Rede Peperi (São Miguel do Oeste)</span>
+                <div class="card-title">Candidatos ao Governo de SC apresentam propostas no Debate ACAERT</div>
+                <div class="card-url">🔗 peperi.com.br/...</div>
+            </a>
+
+            <a href="https://redevalenorte.com/candidatos-ao-governo-de-sc-apresentam-propostas-no-debate-acaert/" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">Rede Vale Norte (Ibirama)</span>
+                <div class="card-title">Candidatos ao Governo de SC apresentam propostas no Debate ACAERT</div>
+                <div class="card-url">🔗 redevalenorte.com/...</div>
+            </a>
+
+            <a href="https://portalamorim.com.br/candidatos-ao-governo-de-sc-participam-de-debate-da-acaert/" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">Portal Amorim (Sombrio)</span>
+                <div class="card-title">Candidatos ao Governo de SC participam de debate da ACAERT</div>
+                <div class="card-url">🔗 portalamorim.com.br/...</div>
+            </a>
+
+            <a href="https://horahiper.com.br/eleicoes2026/tres-candidatos-participam-de-debate-da-acaert-para-o-governo-de-sc-129979" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">Portal Hiper (Tubarão)</span>
+                <div class="card-title">Três candidatos participam de debate da ACAERT para o Governo de SC</div>
+                <div class="card-url">🔗 horahiper.com.br/...</div>
+            </a>
+
+            <a href="https://portalrbv.com.br/especiais/eleicoes-2026/debate-da-acaert-com-candidatos-ao-governo-de-sc-acontece-hoje-sz/" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">Portal RBV (Videira)</span>
+                <div class="card-title">Debate da ACAERT com candidatos ao Governo de SC acontece hoje</div>
+                <div class="card-url">🔗 portalrbv.com.br/...</div>
+            </a>
+
+            <a href="https://portalrbv.com.br/ao-vivo/debate-acaert-2026-candidatos-ao-governo-de-santa-catarina-22-09-2026-gf/" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">Portal RBV (Videira)</span>
+                <div class="card-title">Ao Vivo – Debate Acaert – Candidatos ao Governo de Santa Catarina – 22/09/2026</div>
+                <div class="card-url">🔗 portalrbv.com.br/...</div>
+            </a>
+
+            <a href="https://www.4oito.com.br/noticia/fila-na-saude-velha-politica-e-improvisos-marcam-encerramento-do-debate-da-acaert-89093" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">4Oito (Criciúma)</span>
+                <div class="card-title">Fila na saúde, ‘velha política’ e ‘improvisos’ marcam encerramento do debate da Acaert</div>
+                <div class="card-url">🔗 4oito.com.br/...</div>
+            </a>
+
+            <a href="https://www.4oito.com.br/noticia/candidatos-divergem-sobre-violencia-contra-a-mulher-e-futuro-das-ferrovias-em-sc-89092" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">4Oito (Criciúma)</span>
+                <div class="card-title">Candidatos divergem sobre violência contra a mulher e futuro das ferrovias em SC</div>
+                <div class="card-url">🔗 4oito.com.br/...</div>
+            </a>
+
+            <a href="https://www.4oito.com.br/noticia/universidade-gratuita-pode-acabar-proposta-de-ralf-provoca-confronto-em-debate-de-sc-89090" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">4Oito (Criciúma)</span>
+                <div class="card-title">Universidade Gratuita pode acabar? Proposta de Ralf provoca confronto em debate de SC</div>
+                <div class="card-url">🔗 4oito.com.br/...</div>
+            </a>
+
+            <a href="https://www.4oito.com.br/noticia/promessa-de-10-hospitais-e-cobranca-por-obras-contra-enchentes-acirram-debate-89087" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">4Oito (Criciúma)</span>
+                <div class="card-title">Promessa de 10 hospitais e cobrança por obras contra enchentes acirram debate</div>
+                <div class="card-url">🔗 4oito.com.br/...</div>
+            </a>
+
+            <a href="https://www.4oito.com.br/noticia/ausencia-de-jorginho-criticas-a-gestao-e-infraestrutura-marcam-1o-bloco-de-debate-da-acaert-89083" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">4Oito (Criciúma)</span>
+                <div class="card-title">Ausência de Jorginho, críticas à gestão e infraestrutura marcam 1º bloco de debate da Acaert</div>
+                <div class="card-url">🔗 4oito.com.br/...</div>
+            </a>
+
+            <a href="https://www.4oito.com.br/noticia/candidatos-ao-governo-de-sc-se-enfrentam-em-debate-terca-feira-em-florianopolis-89027" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">4Oito (Criciúma)</span>
+                <div class="card-title">Candidatos ao Governo de SC se enfrentam em debate terça-feira, em Florianópolis</div>
+                <div class="card-url">🔗 4oito.com.br/...</div>
+            </a>
+
+            <a href="https://wh3.com.br/noticia/278665/debate-da-acaert-reune-quatro-candidatos-ao-governo-de-sc-nesta-terca-feira.html" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">WH3.com (São Miguel do Oeste)</span>
+                <div class="card-title">Debate da Acaert reúne quatro candidatos ao Governo de SC nesta terça-feira</div>
+                <div class="card-url">🔗 wh3.com.br/...</div>
+            </a>
+
+            <a href="https://wh3.com.br/noticia/278704/debate-da-acaert-reune-candidatos-ao-governo-de-sc-e-discute-saude-energia-e-infraestrutura--.html" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">WH3.com (São Miguel do Oeste)</span>
+                <div class="card-title">Debate da Acaert reúne candidatos ao governo de SC e discute saúde, energia e infraestrutura</div>
+                <div class="card-url">🔗 wh3.com.br/...</div>
+            </a>
+        </div>
+
+        <div class="category">
+            <div class="category-title">📰 Outros Veículos</div>
+
+            <a href="https://www.jornalmetas.com.br/politica/2026/09/2679543-acaert-promove-debate-entre-quatro-candidatos-ao-governo-de-sc-nesta-terca-feira-22.html" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">Jornal Metas (Gaspar)</span>
+                <div class="card-title">Acaert promove debate entre quatro candidatos ao governo de SC nesta terça-feira (22)</div>
+                <div class="card-url">🔗 jornalmetas.com.br/...</div>
+            </a>
+
+            <a href="https://www.oimagem.com.br/noticia/20074-politica_candidatos_ao_governo_de_sc_apresentam_propostas_no_debate_acaert" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">Jornal Imagem (São Miguel do Oeste)</span>
+                <div class="card-title">Candidatos ao Governo de SC apresentam propostas no Debate ACAERT</div>
+                <div class="card-url">🔗 oimagem.com.br/...</div>
+            </a>
+
+            <a href="https://jornalextrasc.com.br/politica/debate-acaert-reune-4-candidatos-ao-governo-em-florianopolis/" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">ExtraSC (Caçador)</span>
+                <div class="card-title">Debate Acaert reúne 4 candidatos ao governo em Florianópolis</div>
+                <div class="card-url">🔗 jornalextrasc.com.br/...</div>
+            </a>
+
+            <a href="https://clicrdc.com.br/politica-e-cotidiano/eleicoes-2026-analise-do-debate-da-acaert-para-o-governo-de-santa-catarina/" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">ClicRDC (Chapecó)</span>
+                <div class="card-title">Eleições 2026: Análise do debate da Acaert para o Governo de Santa Catarina</div>
+                <div class="card-url">🔗 clicrdc.com.br/...</div>
+            </a>
+
+            <a href="https://sulnoticias.com/sem-jorginho-debate-da-acaert-perde-em-emocao/" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">SulSC (Criciúma)</span>
+                <div class="card-title">Sem Jorginho debate da Acaert perde em emoção</div>
+                <div class="card-url">🔗 sulnoticias.com/...</div>
+            </a>
+
+            <a href="https://www.vbnoticias.com.br/debate-acaert-reune-quatro-candidatos-ao-governo-de-sc-nesta-terca-feira/" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">VBNotícias (Vânio Bosle)</span>
+                <div class="card-title">Debate Acaert reúne quatro candidatos ao Governo de SC nesta Terça-Feira</div>
+                <div class="card-url">🔗 vbnoticias.com.br/...</div>
+            </a>
+
+            <a href="https://www.comsergiooliveira.com/2026/09/22/acaert-fara-o-seu-debate-com-candidatos-a-governador-nesta-terca-feira/" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span class="badge">Sérgio Oliveira.com</span>
+                <div class="card-title">Acaert fará o seu debate com candidatos a governador nesta terça-feira</div>
+                <div class="card-url">🔗 comsergiooliveira.com/...</div>
+            </a>
+        </div>
+
+        <!-- Material Impresso / PDFs -->
+        <div class="category">
+            <div class="category-title">📄 Material Impresso (PDFs)</div>
+            <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 15px;">Baixe os arquivos originais publicados:</p>
+
+            <div class="pdf-buttons-container">
+                <a href="Matéria.pdf" download="Matéria.pdf" class="pdf-btn">
+                    📥 Baixar Matéria (PDF)
+                </a>
+                <a href="Notas.pdf" download="Notas.pdf" class="pdf-btn">
+                    📥 Baixar Notas (PDF)
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
